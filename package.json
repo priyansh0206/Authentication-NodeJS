@@ -1,0 +1,20 @@
+{
+  "name": "authentication-nodejs",
+  "version": "1.0.0",
+  "description": "NodeJS Authentication based complete authentication system which can be used as starter code for creating any new application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "author": "Priyansh Srivastava",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-layouts": "^1.0.0",
+    "git": "^0.1.5",
+    "mongoose": "^8.0.1",
+    "nodemailer": "^6.9.7"
+  }
+}
