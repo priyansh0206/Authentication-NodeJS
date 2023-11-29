@@ -5,6 +5,9 @@ const port = 3000;
 //variable app for using the express
 const app = express();
 
+//variable for initializing the Database connection
+const db = require('./config/mongoose');
+
 // Middleware to parse URL-encoded data
 app.use(express.urlencoded());
 
