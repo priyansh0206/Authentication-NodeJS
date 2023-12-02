@@ -25,9 +25,6 @@ app.use(expressLayouts);
 app.set('view engine', 'ejs');
 app.set('views', './views');
 
-//setting the up the assets folder to be used as static
-app.use(express.static('assets'));
-
 //setup the SASS middleware for using the SCSS
 app.use(sassMiddleWare({
     src: './assets/scss',
@@ -36,6 +33,9 @@ app.use(sassMiddleWare({
     outFile: 'extended',
     prefix: '/css'
 }));
+
+//setting the up the assets folder to be used as static
+app.use(express.static('assets'));
 
 //setting up the routes
 app.use('/', require('./routes'));

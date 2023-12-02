@@ -1,0 +1,95 @@
+<link rel="stylesheet" href="/css/login.css">
+
+<main
+    class="position-absolute top-50 start-50 translate-middle container border border-2 border-info rounded-end rounded-start p-0">
+    <div class="navigation">
+        <div class="signin-panel">
+            <button type="button" id="signin-button" disabled>Sign In</button>
+        </div>
+        <div class="signup-panel">
+            <button type="button" id="signup-button">Sign Up</button>
+        </div>
+    </div>
+
+    <h2 id="form-heading" class="text-center mt-3 text-light">Sign In</h2>
+
+    <form id="signin" method="POST" action="/create-session" class="needs-validation" novalidate>
+        <div class="m-4">
+            <label for="signin-email" class="form-label text-light"><i class="fa-solid fa-envelope"></i> Email address</label>
+            <input type="email" class="form-control border-success" id="signin-email" placeholder="name@example.com" required>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+            <div class="invalid-feedback">
+                Please provide a valid email.
+            </div>
+        </div>
+        <div class="m-4">
+            <label for="signin-password" class="form-label text-light"><i class="fa-solid fa-key"></i>
+                Password</label>
+            <div class="d-flex flex-wrap">
+                <input type="password" class="form-control border-success w-92" id="signin-password" placeholder="password"
+                    required>
+                <button type="button" id="signin-showPassword" class="rounded bg-info ms-2"><i id="signinPasswordIcon"
+                        class="fa-regular fa-eye-slash"></i></button>
+                <div class="invalid-feedback">
+                    Please provide a valid password.
+                </div>
+            </div>
+        </div>
+        <div class="m-4 text-center">
+            <button type="submit" class="btn btn-primary">Login</button>
+        </div>
+    </form>
+
+    <form id="signup" method="POST" action="/create-user" class="needs-validation" novalidate>
+        <div class="m-4">
+            <label for="name" class="form-label text-light"><i class="fa-solid fa-user"></i> Full Name</label>
+            <input type="text" class="form-control border-success" id="name" placeholder="full name" required>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+            <div class="invalid-feedback">
+                Please fill out this field!
+            </div>
+        </div>
+        <div class="m-4">
+            <label for="signup-email" class="form-label text-light"><i class="fa-solid fa-envelope"></i> Email address</label>
+            <input type="email" class="form-control border-success" id="signup-email" placeholder="name@example.com" required>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+            <div class="invalid-feedback">
+                Please provide a valid email.
+            </div>
+        </div>
+        <div class="m-4">
+            <label for="signup-password" class="form-label text-light"><i class="fa-solid fa-key"></i>
+                Password</label>
+            <div class="d-flex flex-wrap">
+                <input type="password" class="form-control border-success w-85" id="signup-password" placeholder="password" 
+                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" required>
+                <button type="button" id="signup-showPassword" class="rounded bg-info ms-1"><i id="signupPasswordIcon"
+                        class="fa-regular fa-eye-slash"></i></button>
+                <span class="d-inline-block" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus"
+                    data-bs-title="Password should contain:" data-bs-html="true"
+                    data-bs-content="<ul><li>minimum 6 characters</li><li>an Uppercase (A-Z)</li><li>a Lowercase (a-z)</li><li>a Number (0-9)</li></ul>">
+                    <button class="btn btn-warning-emphasis text-warning" type="button"><i
+                            class="fa-solid fa-circle-info"></i></button>
+                </span>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+                <div class="invalid-feedback">
+                    Please provide a valid password.
+                </div>
+            </div>
+        </div>
+        <div class="m-4 text-center">
+            <button type="submit" class="btn btn-primary">Register</button>
+        </div>
+    </form>
+
+    </div>
+
+    <script src="/js/login.js"></script>

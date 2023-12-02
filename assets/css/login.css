@@ -1,0 +1,63 @@
+main {
+  width: 40% !important;
+  background-color: rgba(134, 134, 134, 0.421); }
+  main #form-heading {
+    transition: opacity 0.5s ease-in-out; }
+  main .navigation {
+    width: 100%;
+    height: 50px;
+    display: flex; }
+    main .navigation div {
+      width: 50%;
+      height: 100%; }
+      main .navigation div button {
+        width: 100%;
+        height: 100%;
+        background-color: #0073ff;
+        outline: none;
+        border: none; }
+      main .navigation div button:disabled {
+        background-color: whitesmoke;
+        color: black; }
+
+#signup {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out; }
+
+#signin {
+  display: block;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out; }
+
+.w-85 {
+  width: 85% !important; }
+
+.w-92 {
+  width: 91% !important; }
+
+@media screen and (max-width: 1300px) {
+  .w-92 {
+    width: 87% !important; }
+  .w-85 {
+    width: 76% !important; } }
+
+@media screen and (max-width: 1000px) {
+  main {
+    width: 60% !important; }
+  .w-92 {
+    width: 88% !important; } }
+
+@media screen and (max-width: 700px) {
+  .w-92 {
+    width: 82% !important; }
+  .w-85 {
+    width: 67% !important; } }
+
+@media screen and (max-width: 500px) {
+  main {
+    width: 80% !important; }
+  .w-92 {
+    width: 80% !important; }
+  .w-85 {
+    width: 63% !important; } }
