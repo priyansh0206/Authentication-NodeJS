@@ -15,9 +15,22 @@ const sassMiddleWare = require('node-sass-middleware');
 //variable for using the express layouts
 const expressLayouts = require('express-ejs-layouts');
 
+//variable for using the sessions
+const session = require('express-session');
+
+//variable for using the sessions using MongoDB
+const MongoStore = require('connect-mongo');
+
+//vairable for using the passport libraries
+const passport = require('passport');
+const passLocal = require('./config/passport');
+
+const flash = require('connect-flash');
+const flashMware = require('./config/flash');
+const cookieParser = require('cookie-parser');
 // Middleware to parse URL-encoded data
 app.use(express.urlencoded());
-
+app.use(cookieParser());
 //setting up the express-ejs-layouts for enabling onepage view
 app.use(expressLayouts);
 
@@ -36,6 +49,31 @@ app.use(sassMiddleWare({
 
 //setting the up the assets folder to be used as static
 app.use(express.static('assets'));
+
+//setup for using the sessions in project using MongoDB
+const store = MongoStore.create({
+    mongoUrl: 'mongodb://127.0.0.1:27017/Authentication-NodeJS', // Replace with your MongoDB connection URL
+    collectionName: 'sessions', // Optional: Specify the name of the collection (default is 'sessions')
+    autoRemove: 'enabled', // Optional: Disable automatic session removal
+});
+//setup for using the Sessions with help of MongoStore
+app.use(session({
+    name: 'Authentication_NodeJS',
+    secret: 'AuthenticationNodeJS',
+    saveUninitialized: false,
+    resave: false,
+    cookie: {
+        maxAge: (1000 * 60 * 100)
+    },
+    store: store
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+// app.use(passport.setAuthenticatedUser);
+
+app.use(flash());
+app.use(flashMware.setFlash);
 
 //setting up the routes
 app.use('/', require('./routes'));

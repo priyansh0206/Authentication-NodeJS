@@ -16,7 +16,7 @@
     <form id="signin" method="POST" action="/create-session" class="needs-validation" novalidate>
         <div class="m-4">
             <label for="signin-email" class="form-label text-light"><i class="fa-solid fa-envelope"></i> Email address</label>
-            <input type="email" class="form-control border-success" id="signin-email" placeholder="name@example.com" required>
+            <input type="email" class="form-control border-success" id="signin-email" placeholder="name@example.com" required name="email">
             <div class="valid-feedback">
                 Looks good!
             </div>
@@ -29,7 +29,7 @@
                 Password</label>
             <div class="d-flex flex-wrap">
                 <input type="password" class="form-control border-success w-92" id="signin-password" placeholder="password"
-                    required>
+                    required name="password">
                 <button type="button" id="signin-showPassword" class="rounded bg-info ms-2"><i id="signinPasswordIcon"
                         class="fa-regular fa-eye-slash"></i></button>
                 <div class="invalid-feedback">
@@ -45,7 +45,7 @@
     <form id="signup" method="POST" action="/create-user" class="needs-validation" novalidate>
         <div class="m-4">
             <label for="name" class="form-label text-light"><i class="fa-solid fa-user"></i> Full Name</label>
-            <input type="text" class="form-control border-success" id="name" placeholder="full name" required>
+            <input type="text" class="form-control border-success" id="name" placeholder="full name" required name="name">
             <div class="valid-feedback">
                 Looks good!
             </div>
@@ -55,7 +55,7 @@
         </div>
         <div class="m-4">
             <label for="signup-email" class="form-label text-light"><i class="fa-solid fa-envelope"></i> Email address</label>
-            <input type="email" class="form-control border-success" id="signup-email" placeholder="name@example.com" required>
+            <input type="email" class="form-control border-success" id="signup-email" placeholder="name@example.com" required name="email">
             <div class="valid-feedback">
                 Looks good!
             </div>
@@ -68,7 +68,7 @@
                 Password</label>
             <div class="d-flex flex-wrap">
                 <input type="password" class="form-control border-success w-85" id="signup-password" placeholder="password" 
-                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" required>
+                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" required name="password">
                 <button type="button" id="signup-showPassword" class="rounded bg-info ms-1"><i id="signupPasswordIcon"
                         class="fa-regular fa-eye-slash"></i></button>
                 <span class="d-inline-block" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus"
