@@ -46,7 +46,7 @@ module.exports.createUser = async function (req, res) {
             token: token,
             tokenExpired: tokenExpired
         });
-        const verifyLink = `http://127.0.0.1:3000/verify/${token}`;
+        const verifyLink = `https://authentication-nodejs-crs0.onrender.com/verify/${token}`;
         const mailOptions = {
             from: 'developer.priyansh0@gmail.com',
             to: req.body.email,
@@ -130,7 +130,7 @@ module.exports.resendVerification = async function (req, res) {
             const token = crypto.randomBytes(32).toString('hex');
             const tokenExpired = new Date();
             tokenExpired.setMinutes(tokenExpired.getMinutes() + 30);
-            const verifyLink = `http://127.0.0.1:3000/verify/${token}`;
+            const verifyLink = `https://authentication-nodejs-crs0.onrender.com/verify/${token}`;
             const mailOptions = {
                 from: 'developer.priyansh0@gmail.com',
                 to: user.email,
