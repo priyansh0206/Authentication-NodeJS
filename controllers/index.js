@@ -71,6 +71,10 @@ module.exports.createUser = async function (req, res) {
         });
     } catch (error) {
         console.log(error);
+        if(error.code === 11000){
+            req.flash('error', 'Email already exists, please try with different email !');
+            return res.redirect('back');
+        }
         return res.status(500).send("Internal Server Error !");
     }
 }
@@ -100,6 +104,7 @@ module.exports.verifyUser = async function (req, res) {
 }
 
 module.exports.createSession = async function (req, res) {
+    console.log(req.user);
     req.flash('success', 'Logged in Successfully');
     return res.redirect('/dashboard');
 }

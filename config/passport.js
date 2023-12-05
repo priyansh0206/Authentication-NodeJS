@@ -64,7 +64,7 @@ passport.checkAuthentication = function(req, res, next){
         return next();
     }
     req.flash('error', 'Please Sign In First !');
-    return res.redirect('/');
+    return res.redirect('/login');
 }
 
 passport.checkUnAuthentication = function(req, res, next){

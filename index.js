@@ -52,7 +52,7 @@ app.use(express.static('assets'));
 
 //setup for using the sessions in project using MongoDB
 const store = MongoStore.create({
-    mongoUrl: 'mongodb://127.0.0.1:27017/Authentication-NodeJS', // Replace with your MongoDB connection URL
+    mongoUrl: 'mongodb+srv://priyanshadmin:admin@clustermain.vvg6gyt.mongodb.net/AuthenticationNodeJS?retryWrites=true&w=majority', // Replace with your MongoDB connection URL
     collectionName: 'sessions', // Optional: Specify the name of the collection (default is 'sessions')
     autoRemove: 'enabled', // Optional: Disable automatic session removal
 });
@@ -70,7 +70,7 @@ app.use(session({
 
 app.use(passport.initialize());
 app.use(passport.session());
-// app.use(passport.setAuthenticatedUser);
+app.use(passport.setAuthenticatedUser);
 
 app.use(flash());
 app.use(flashMware.setFlash);
