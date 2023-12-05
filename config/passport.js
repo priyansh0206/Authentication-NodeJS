@@ -18,17 +18,17 @@ passport.use(new LocalStrategy(
             const user = await User.findOne({ email: email });
             if (!user) {
                 req.flash('error', 'Invalid Username / Password');
-                console.log("User not exist");
                 return done(null, false);
             }
-
+            if (!user.verified){
+                req.flash('error', 'Please complete the Email verification first');
+                return done(null, false);
+            }
             const isPasswordValid = await bcrypt.compare(password, user.password);
             if (!isPasswordValid) {
                 req.flash('error', 'Invalid Username / Password');
-                console.log("User password not exist");
                 return done(null, false);
             }
-            console.log("Successfulllll");
             return done(null, user);
         } catch (err) {
             req.flash('error', err);

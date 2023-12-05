@@ -1,0 +1,47 @@
+<div class="container position-absolute top-50 start-50 translate-middle">
+    <div class="row h-100 d-flex justify-content-center flex-column align-items-center">
+        <div class="col-lg-6 col-sm-10  border border-2 border-info rounded-end rounded-start">
+            <form action="/resend-verification" method="POST" class="text-light m-4 needs-validation" novalidate>
+                <label for="signin-email" class="form-label text-light"><i class="fa-solid fa-envelope"></i> Email
+                    address</label>
+                <input type="email" class="form-control border-success" id="signin-email" placeholder="name@example.com"
+                    required name="email">
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+                <div class="invalid-feedback">
+                    Please provide a valid email.
+                </div>
+                <div class="text-center mt-4">
+                    <button type="submit" class="btn btn-primary">Resend Verification Email</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    (() => {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  const forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.from(forms).forEach(form => {
+    form.addEventListener('submit', event => {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
+
+      form.classList.add('was-validated')
+    }, false)
+  })
+})()
+
+var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+  var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+    return new bootstrap.Popover(popoverTriggerEl);
+  });
+</script>
